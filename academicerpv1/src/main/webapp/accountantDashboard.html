@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accountant Dashboard</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/form-validation.css" rel="stylesheet">
+</head>
+
+<body class="bg-warning">
+
+<!--style="background-color: #e3f2fd;"-->
+
+<ul class="nav nav-tabs  nav-justified" style="background-color: #bfbfbf;" id="myTab" role="tablist" >
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Disburse Salary</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Already Disbursed</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form id="Disburse-Salary">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Select</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Department</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Disburse from Records</th>
+                            </tr>
+                            </thead>
+                            <tbody id="employee-search">
+
+                            </tbody>
+                        </table>
+
+                        <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitEmployee" data-toggle="modal" data-target="#salarypopup"> Disburse Salary For Selected Employees</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="salarypopup" tabindex="-1" role="dialog" aria-labelledby="salarypopupTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="salarypopupForm" class="needs-validation-courses" novalidate>
+                                            <div class="form-group">
+                                                <label for="amount" class="col-form-label"> Amount : </label>
+                                                <input type="number" id="amount" required>
+                                                <div class="invalid-feedback">
+                                                    Enter only numbers.
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description" class="col-form-label">Description : </label>
+                                                <input type="text" class="form-control" id="description">
+                                            </div>
+                                        </form>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary"  id="submitSalary">Save changes</button>
+<!--                                            <button type="button" class="btn btn-primary"  data-dismiss="modal" id="submitSalary">Save changes</button>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="individualDisbursePopup" tabindex="-1" role="dialog" aria-labelledby="individualDisburseTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="individualDisburseForm" class="needs-validation-courses" novalidate>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">Select</th>
+                                                    <th scope="col">Amount</th>
+                                                    <th scope="col">Description</th>
+                                                    <th scope="col">Date</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="individualDisburseFormTable">
+
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="submitSalaryRecord">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form id="Already-Disbursed-Form">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Department</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Salary</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody id="Already-Salary-Table">
+
+                            </tbody>
+                        </table>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+</footer>
+</body>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/get-employees.js"></script>
+</html>
